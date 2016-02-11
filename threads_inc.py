@@ -32,7 +32,7 @@ class myThread (threading.Thread):
                 time.sleep(0.5)
              self.lock.acquire() 
              if not fineGara:          
-                  print "Il thread ",self.threadID," vinto!\n"
+                  print "Il thread ",self.threadID," ha vinto!\n"
              fineGara=True
              self.lock.release()
 # Create new threads
