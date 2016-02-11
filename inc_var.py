@@ -21,12 +21,14 @@ class myThread (threading.Thread):
         self.gareggia();
         print "Exiting " + self.name
     def gareggia(self):
-        while self.counter<=100:
+        global exitFlag
+        while self.counter<=100 and exitFlag==1:
                 inc_var=random.randrange(1, 7, 1)    
         	self.counter = self.counter+inc_var
                 print self.name, self.counter, "     (",inc_var,")"
                 time.sleep(1)
         print self.name+" Ha finito!!!"
+        exitFlag = 1
 
 # Create new threads
 thread1 = myThread(1, "Thread-1", 0)
