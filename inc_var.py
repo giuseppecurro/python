@@ -9,7 +9,7 @@ import random
 import time
 
 exitFlag = 0
-
+esito = " ha vinto!!!"
 class myThread (threading.Thread):
     def __init__(self, threadID, name, counter):
         threading.Thread.__init__(self)
@@ -22,12 +22,14 @@ class myThread (threading.Thread):
         print "Exiting " + self.name
     def gareggia(self):
         global exitFlag
+        global esito
         while self.counter<=100 and exitFlag==1:
                 inc_var=random.randrange(1, 7, 1)    
         	self.counter = self.counter+inc_var
                 print self.name, self.counter, "     (",inc_var,")"
                 time.sleep(1)
         print self.name+" Ha finito!!!"
+        esito=""
         exitFlag = 1
 
 # Create new threads
