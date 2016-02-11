@@ -10,7 +10,7 @@
 import threading
 import random
 import time
-fineGara = False
+fineGara = False # consente un output finale piu pulito
 class myThread (threading.Thread):
     def __init__(self, threadID, lock):
         threading.Thread.__init__(self)
@@ -20,14 +20,13 @@ class myThread (threading.Thread):
     def run(self):
         print "Starting thread: " , self.threadID
         self.gareggia();
-        #print "Exiting thread: " ,  self.threadID
     def gareggia(self):
              global fineGara
              while self.counter<=100:
-                inc_var=random.randint(1, 6)
+                inc_var=random.randint(1, 6) #num.cas.da 1 a 6 compresi
                 self.counter += inc_var
-                self.lock.acquire()
-                if not fineGara:
+                self.lock.acquire() #completa una stampa
+                if not fineGara:    #niente piu stampe per il secondo ed il terzo arrivato
                      print "Thread ", self.threadID, "\t=",self.counter,"\t\t[",inc_var,"]"
                 self.lock.release()
                 time.sleep(0.5)
@@ -37,17 +36,17 @@ class myThread (threading.Thread):
              fineGara=True
              self.lock.release()
 # Create new threads
-lock = threading.Lock()
+lock = threading.Lock() #la risorsa stampa dovra essere bloccata per non avere output mischiati dei thread
 t1 = myThread(1,lock)
 t2 = myThread(2,lock)
 t3 = myThread(3,lock)
-print "threads starts"
+print "threads starts..."
 # Start new Threads
 t1.start()
 t2.start()
 t3.start()
 #
-t1.join()
+t1.join() #il main...
 t2.join()
-t3.join()
+t3.join() #...non e' il caso che finisca prima dei thread secondari
 print "Exiting Main Thread after all others threads"
