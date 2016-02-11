@@ -4,6 +4,7 @@
 # per avere il pid: ps aux | grep inc_var.py 
 # per avere i threads attivi: ps -T <pid>
 # top -H
+#
 import threading
 import random
 import time
