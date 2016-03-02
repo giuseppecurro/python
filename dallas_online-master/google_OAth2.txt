@@ -1,0 +1,13 @@
+sudo apt-get install python-pip
+sudo pip install --upgrade oauth2client
+sudo pip install PyOpenSSL
+sudo pip install gspread
+sudo apt-get install libffi-dev
+sudo pip install cryptography
+
+rcp temper-6c9aee0dfa88.json pi@192.168.1.39:temper-6c9aee0dfa88.json
+rcp temper-6c9aee0dfa88.json pi@192.168.1.39:client_secret_60292564550-ilkoek9qag18paab4lcfna2va0fg07p9.apps.googleusercontent.com.json 
+
+
+
+
