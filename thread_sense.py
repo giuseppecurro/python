@@ -1,3 +1,4 @@
+#versione collaudata in b19 il 9 marzo 2016
 from sense_hat import SenseHat
 sense=SenseHat()
 #import RPI.GPIO as GPIO
